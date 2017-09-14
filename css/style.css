@@ -25,6 +25,14 @@ a:link
 	font-weight: 100;
 }
 
+.bottom
+{
+	position:fixed;
+	bottom:5%;
+	width:100%;
+	text-align: center;
+}
+
 #name
 {
 	font-size: 100px;
