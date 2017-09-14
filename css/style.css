@@ -77,3 +77,14 @@ a:link
 	font-size: 40px;
 	color: #AA66CC;
 }
+
+#bitcoin
+{
+	font-size: 14px;
+	color: #000000;
+}
+
+#bitcoin a
+{
+	color: #000000;
+}
