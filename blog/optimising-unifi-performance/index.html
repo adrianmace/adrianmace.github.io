@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Optimising UniFi Performance | Adrian Mace: Systems Engineer in Melbourne, Australia</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="Key settings to make the most of your UniFi wireless environment">
+  <meta name="keywords" content="unifi , wireless , performance">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Optimising UniFi Performance" />
+  <meta name="twitter:description" content="Key settings to make the most of your UniFi wireless environment"/>
+  <meta name="twitter:site" content="https://twitter.com/blurrybird" />
+  <meta name="twitter:creator" content="https://twitter.com/blurrybird" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/adrianmace.com\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Optimising UniFi Performance",
+      "headline" : "Optimising UniFi Performance",
+      "description" : "Key settings to make the most of your UniFi wireless environment",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-07-28 08:27:51 \u002b0000 UTC",
+      "dateModified" : "2020-07-28 08:27:51 \u002b0000 UTC",
+      "url" : "https:\/\/adrianmace.com\/blog\/optimising-unifi-performance\/",
+      "wordCount" : "593",
+      "keywords" : ["unifi", "wireless", "performance", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Optimising UniFi Performance</h1>
+            <time datetime="2020-07-28 08:27:51 &#43;0000 UTC" class="post__date"
+            >Jul 28 2020</time>
+          </header>
+          <article class="post__content">
+              
+<p>UniFi is great, but their default settings leave a lot to be desired. This set of settings get applied to any UniFi installation that I touch where a proper wireless survey, access point installation, and channel selection have already been completed.</p>
+<p>These settings are very likely improve coverage, throughput, and roaming performance for locations that have more than one access point, <em>without</em> compromising on device compatibility or battery life.</p>
+<h2 id="controller-settings">Controller Settings<a class="anchor" href="#controller-settings">#</a></h2>
+<h3 id="settings--site">Settings &gt; Site<a class="anchor" href="#settings--site">#</a></h3>
+<ul>
+<li>
+<p>Ensure <code>Enable Advanced Features</code> is enabled<br>
+This allows you to follow along with the guide in it&rsquo;s entirety.</p>
+</li>
+<li>
+<p>Ensure <code>Automatically Optimise Network and WiFi performance</code> is disabled<br>
+With this disabled, you will be able to implement the below without risk of it being automatically reverted at a later date.</p>
+</li>
+</ul>
+<h3 id="settings--wireless-networks---your-network-name---edit">Settings &gt; Wireless Networks &gt; {{ Your Network Name }} &gt; Edit<a class="anchor" href="#settings--wireless-networks---your-network-name---edit">#</a></h3>
+<ul>
+<li>
+<p>Ensure <code>Fast Roaming</code> is disabled<br>
+It creates a lot more &lsquo;noise&rsquo; on the dashboard in the form of anomalies when you have more than one access point within a home environment, and is useless if you only have a single one.<br>
+At the time of writing it&rsquo;s also a BETA feature.</p>
+</li>
+<li>
+<p>Ensure <code>Combine 2 GHz and 5 GHz WiFi Network Names into one</code> is enabled<br>
+With these optimised settings you&rsquo;ll see devices only using 2.4GHz if they either a) don&rsquo;t support 5GHz (thanks Google!) or b) are too far away to maintain a reliable connection.</p>
+</li>
+<li>
+<p>Ensure <code>Connects high performance clients to 5 GHz only</code> is disabled<br>
+With these optimised settings you&rsquo;ll see devices always prefer 5GHz, and at the time of writing, the current method to detect &lsquo;high performance clients&rsquo; is not reliable.</p>
+</li>
+<li>
+<p>Ensure <code>DTIM Mode</code> default values is disabled<br>
+This is the interval in which the access point polls the devices to check if they&rsquo;re alive. For many Apple / iOS devices, this causes them to not sleep correctly which both causes anomalies on the dashboard and kills the device battery life.</p>
+<ul>
+<li>Set DTIM 2G Period to 3</li>
+<li>Set DTIM 5G Period to 3</li>
+</ul>
+</li>
+</ul>
+<h3 id="settings--try-new-settings--wifi-ai">Settings &gt; Try New Settings &gt; WiFi AI<a class="anchor" href="#settings--try-new-settings--wifi-ai">#</a></h3>
+<ul>
+<li>Ensure <code>Enable WiFi AI</code> is disabled<br>
+This is a great feature, but I found it to be choosing channels that were DFS (radar in the area causes intermittent dropouts of your network) or just not selecting channels 1 / 6 / 11.</li>
+</ul>
+<h2 id="device-settings">Device Settings<a class="anchor" href="#device-settings">#</a></h2>
+<h3 id="devices---device-name---config--radios">Devices &gt; {{ Device Name }} &gt; Config &gt; Radios<a class="anchor" href="#devices---device-name---config--radios">#</a></h3>
+<ul>
+<li>
+<p>Ensure <code>Channel Width</code> is set to the following</p>
+<ul>
+<li>Radio 2G should be set to <code>HT20</code></li>
+<li>Radio 5G should be set to <code>VHT80</code> or <code>VHT160</code> (HD series)</li>
+</ul>
+</li>
+<li>
+<p>Ensure <code>Transmit Power</code> is set to the following</p>
+<ul>
+<li>Radio 2G should be set to <code>Medium</code></li>
+<li>Radio 5G should be set to <code>High</code></li>
+</ul>
+</li>
+<li>
+<p>Ensure <code>Channel</code> is set appropriately<br>
+Perform what is known as a &lsquo;site survey&rsquo; and pick the least congested channel. This is outside the scope of this post.</p>
+</li>
+</ul>
+<h3 id="devices---device-name---config--band-steering">Devices &gt; {{ Device Name }} &gt; Config &gt; Band Steering<a class="anchor" href="#devices---device-name---config--band-steering">#</a></h3>
+<ul>
+<li>Ensure <code>Band Steering</code> is set to Prefer 5G<br>
+This ensures that clients will connect on the 5GHz channel when available.</li>
+</ul>
+<h3 id="devices---device-name---config--airtime-fairness">Devices &gt; {{ Device Name }} &gt; Config &gt; Airtime Fairness<a class="anchor" href="#devices---device-name---config--airtime-fairness">#</a></h3>
+<ul>
+<li>Ensure <code>Airtime Fairness</code> is set to On (if available)<br>
+This ensures that the access point shares data between connected clients on a time division multiplexing basis, rather than the default which allows a certain amount of bandwidth to be transferred before moving on.<br>
+<em>In practice if this is not enabled, a small Raspberry Pi connected to a far-away AP at 54Mbps will drag every other connected device&rsquo;s effective bandwidth down to 54Mbps until the Pi is powered off or moved to a different AP.</em></li>
+</ul>
+
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/blurrybird"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://adrianmace.com/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+  
+     
+    
+      <a class="social-icons__link" title="Email"
+         href="mailto:me@adrianmace.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://adrianmace.com/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+      <a class="social-icons__link" title="LinkedIn"
+         href="https://linkedin.com/in/adrianmace"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://adrianmace.com/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+     
+</div>
+
+            <p>© Adrian Mace 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>
