@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unifi on Adrian Mace: Systems Engineer in Melbourne, Australia</title>
+    <link>https://adrianmace.com/tags/unifi/</link>
+    <description>Recent content in unifi on Adrian Mace: Systems Engineer in Melbourne, Australia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Adrian Mace {year}</copyright>
+    <lastBuildDate>Tue, 28 Jul 2020 08:27:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://adrianmace.com/tags/unifi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Optimising UniFi Performance</title>
+      <link>https://adrianmace.com/blog/optimising-unifi-performance/</link>
+      <pubDate>Tue, 28 Jul 2020 08:27:51 +0000</pubDate>
+      
+      <guid>https://adrianmace.com/blog/optimising-unifi-performance/</guid>
+      <description>UniFi is great, but their default settings leave a lot to be desired. This set of settings get applied to any UniFi installation that I touch where a proper wireless survey, access point installation, and channel selection have already been completed.
+These settings are very likely improve coverage, throughput, and roaming performance for locations that have more than one access point, without compromising on device compatibility or battery life.
+Controller Settings Settings &amp;gt; Site   Ensure Enable Advanced Features is enabled</description>
+    </item>
+    
+  </channel>
+</rss>

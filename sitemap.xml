@@ -18,11 +18,17 @@
   </url>
   
   <url>
-    <loc>https://adrianmace.com/categories/</loc>
+    <loc>https://adrianmace.com/tags/</loc>
+    <lastmod>2020-07-28T08:27:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://adrianmace.com/tags/</loc>
+    <loc>https://adrianmace.com/tags/unifi/</loc>
+    <lastmod>2020-07-28T08:27:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrianmace.com/categories/</loc>
   </url>
   
 </urlset>
